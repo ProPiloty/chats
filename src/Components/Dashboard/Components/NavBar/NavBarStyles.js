@@ -6,6 +6,6 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
-  width: 10vw;
+  width: 20vw;
   max-width: 300px;
 `

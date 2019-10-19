@@ -5,7 +5,7 @@ export const Container = styled.div`
   background: gray;
   height: 100vh;
   overflow-y: scroll;
-  width: 20vw;
+  width: 30vw;
   max-width: 400px;
 `
 
