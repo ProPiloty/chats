@@ -16,7 +16,7 @@ const app = express();
 // top level middleware
 provider(app);
 
-// massive
+// massive db connection
 databaseConnection(app);
 
 // routes

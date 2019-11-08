@@ -1,10 +1,35 @@
 import React from 'react';
+import axios from 'axios';
 
-const Auth = () => {
+// Child Components
+import Login from './Components/Login/Login';
+import Register from './Components/Register/Register';
+
+// Styled Components
+import {
+  AuthContainer
+} from './AuthStyles';
+
+const Auth = (props) => {
+  const isLogin = props.match.path === '/login';
+
+  const handleUserLogin = (userData) => {
+    console.log(userData);
+  }
+
+  const handleUserRegister = (userData) => {
+    console.log(userData);
+  }
+
   return (
-    <div>
-      <h1>Auth</h1>
-    </div>
+    <AuthContainer>
+      {
+        isLogin ?
+        <Login userLogin={handleUserLogin} />
+        :
+        <Register userRegister={handleUserRegister} />
+      }
+    </AuthContainer>
   )
 }
 

@@ -11,7 +11,7 @@ import Landing from '../Components/Landing/Landing';
 export default (
   <Switch>
     <Route exact path='/' component={Landing} />
-    <Route path='/auth' component={Auth} />
+    <Route path={['/login', '/register']} component={Auth} />
     <Route path='/dashboard' component={Dashboard} />
   </Switch>
 )
