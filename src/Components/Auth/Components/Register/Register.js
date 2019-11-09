@@ -23,10 +23,10 @@ const Register = (props) => {
       <Link to='/'>Home</Link>
       <h2>Register</h2>
       <RegisterForm>
-        <input onChange={(e) => setUsername(e.target.value)} />
-        <input onChange={(e) => setEmail(e.target.value)} />
-        <input onChange={(e) => setPassword(e.target.value)} />
-        <input onChange={(e) => setPhone(e.target.value)} />
+        <input placeholder="Username" onChange={(e) => setUsername(e.target.value)} />
+        <input placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+        <input placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
+        <input placeholder="Phone" onChange={(e) => setPhone(e.target.value)} />
         <button onClick={() => {userRegister({username, email, password, phone})}} >Register</button>
       </RegisterForm>
       <Link to='/login' >If you already have an account, log in here</Link>

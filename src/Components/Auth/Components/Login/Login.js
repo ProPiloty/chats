@@ -8,7 +8,7 @@ import {
 } from './LoginStyles';
 
 const Login = (props) => {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const {userLogin} = props;
@@ -18,9 +18,9 @@ const Login = (props) => {
       <Link to='/'>Home</Link>
       <h2>Login</h2>
       <LoginForm>
-        <input onChange={(e) => setUsername(e.target.value)} />
+        <input onChange={(e) => setEmail(e.target.value)} />
         <input onChange={(e) => setPassword(e.target.value)} />
-        <button onClick={() => {userLogin({username, password})}}>Log In</button>
+        <button onClick={() => {userLogin({email, password})}}>Log In</button>
       </LoginForm>
       <Link to='/register'>If you don't have an account, register here</Link>
     </LoginContainer>

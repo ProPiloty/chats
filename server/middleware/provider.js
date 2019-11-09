@@ -1,6 +1,8 @@
+// Packagegs
 const express = require('express');
 const session = require('express-session');
 
+// Deconstructs the session secret from the .env file
 const {SESSION_SECRET} = process.env;
 
 const provider = (app) => {

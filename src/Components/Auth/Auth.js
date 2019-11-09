@@ -1,5 +1,9 @@
 import React from 'react';
+import {useSelector, useDispatch} from 'react-redux';
 import axios from 'axios';
+
+// Redux Reducers
+import {updateUser} from '../../redux/reducers/userReducer';
 
 // Child Components
 import Login from './Components/Login/Login';
@@ -11,14 +15,36 @@ import {
 } from './AuthStyles';
 
 const Auth = (props) => {
+
+  // Connecting to redux state
+  const user = useSelector(state => (state.user))
+  const dispatch = useDispatch();
+
+  // Checks path name to display correct component
   const isLogin = props.match.path === '/login';
 
+  // Logs in a user
   const handleUserLogin = (userData) => {
-    console.log(userData);
+    axios.post('/auth/login', userData)
+      .then((res) => {
+        dispatch(updateUser(res.data));
+        props.history.push('/dashboard');
+      })
+      .catch((err) => {
+        console.error(err);
+      })
   }
 
+  // Registers a user
   const handleUserRegister = (userData) => {
-    console.log(userData);
+    axios.post('/auth/register', userData)
+      .then((res) => {
+        dispatch(updateUser(res.data));
+        props.history.push('/dashboard');
+      })
+      .catch((err) => {
+        console.error(err);
+      })
   }
 
   return (
