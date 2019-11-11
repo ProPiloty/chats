@@ -10,7 +10,7 @@ export const LoginContainer = styled.div`
   align-items: center;
 `;
 
-export const LoginForm = styled.div`
+export const LoginForm = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;

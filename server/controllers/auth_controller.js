@@ -69,8 +69,23 @@ module.exports = {
     const authenticated = bcrypt.compareSync(password, userFound[0].password);
 
     if (authenticated) {
+      // Destructures userFound[0]
+      const {
+        id,
+        username,
+        email,
+        phone,
+        picture
+      } = userFound[0];
+
       // Stores returned user data on session
-      session.user = userFound[0];
+      session.user = {
+        id,
+        username,
+        email,
+        phone,
+        picture
+      };
       // Responds to client with ok status and user data on session
       return res.status(200).send(session.user);
     } else {

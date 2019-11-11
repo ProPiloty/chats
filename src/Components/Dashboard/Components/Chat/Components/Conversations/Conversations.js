@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useEffect} from 'react';
+import {useSelector, useDispatch} from 'react-redux';
 
 // child components
 import ChatBlock from './Components/ChatBlock/ChatBlock';
@@ -9,29 +10,21 @@ import {
   List
 } from './ConversationsStyles';
 
-const Conversations = () => {
-  const chats = [
-    {
-      name: "John",
-      message: "hello world"
-    },
-    {
-      name: "Jane",
-      message: "hello world"
-    },
-    {
-      name: "Bob",
-      message: "hello world"
-    }
-  ];
+const Conversations = (props) => {
 
-  const listOfChats = chats.map((chat, ind) => (
+  // Connecting to redux state
+  const reduxState = useSelector(state => (state))
+  const dispatch = useDispatch();
+
+  const {conversations} = reduxState.conversationReducer;
+
+  const listOfChats = conversations.map((chat, ind) => (
     <ChatBlock chat={chat} key={ind} />
   ));
 
   return (
     <Container>
-      <h1>Inbox</h1>
+      <h1>My Conversations:</h1>
       <List>
         {listOfChats}
       </List>

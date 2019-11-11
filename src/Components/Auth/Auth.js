@@ -17,7 +17,7 @@ import {
 const Auth = (props) => {
 
   // Connecting to redux state
-  const user = useSelector(state => (state.user))
+  const reduxState = useSelector(state => (state))
   const dispatch = useDispatch();
 
   // Checks path name to display correct component
@@ -28,7 +28,7 @@ const Auth = (props) => {
     axios.post('/auth/login', userData)
       .then((res) => {
         dispatch(updateUser(res.data));
-        props.history.push('/dashboard');
+        props.history.push('/dashboard/chat');
       })
       .catch((err) => {
         console.error(err);
@@ -40,7 +40,7 @@ const Auth = (props) => {
     axios.post('/auth/register', userData)
       .then((res) => {
         dispatch(updateUser(res.data));
-        props.history.push('/dashboard');
+        props.history.push('/dashboard/chat');
       })
       .catch((err) => {
         console.error(err);
